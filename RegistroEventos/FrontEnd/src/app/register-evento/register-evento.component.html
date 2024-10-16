@@ -1,0 +1,63 @@
+<div class="page-container">
+    <!-- Sección del formulario -->
+    <section class="form-section card">
+        <form [formGroup]="eventoForm" (ngSubmit)="registroEvento(eventoForm.value)" class="form-container">
+            <h1>Registro de Evento</h1>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombreEvento">Nombre del Evento</label>
+                    <input formControlName="nombreEvento" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="documentoIdentidad">Documento de Identidad</label>
+                    <input id="documentoIdentidad" formControlName="documentoIdentidad" required />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="participante">Participante</label>
+                    <input id="participante" formControlName="participante" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="codigoEstudiante">Código Estudiante</label>
+                    <input id="codigoEstudiante" formControlName="codigoEstudiante" required />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombreEstudiante">Nombre Estudiante</label>
+                    <input id="nombreEstudiante" formControlName="nombreEstudiante" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaIngreso">Fecha de Ingreso</label>
+                    <input id="fechaIngreso" type="date" formControlName="fechaIngreso" required />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="horaSistema">Hora del Sistema</label>
+                    <input id="horaSistema" formControlName="horaSistema" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Registrar</button>
+        </form>
+    </section>
+
+    <!-- Sección de personas registradas -->
+    <section class="registered-section card">
+        <h2 class="registered-header">Personas Registradas</h2>
+        <ul class="registered-list">
+            <li *ngFor="let evento of eventos">
+                {{ evento.nombreEstudiante }} - {{ evento.documentoIdentidad }} - {{ evento.participante }}
+            </li>
+        </ul>
+    </section>
+</div>
